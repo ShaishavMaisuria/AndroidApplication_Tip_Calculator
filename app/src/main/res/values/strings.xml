@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Tip Calculator</string>
+    <string name="StringBillTotal">Bill Total</string>
+    <string name="StringTip">Tip:</string>
+    <string name="StringRadioButton10percent">10%</string>
+    <string name="StringRadioButton15percent">15%</string>
+    <string name="StringRadioButton18percent">18%</string>
+    <string name="StringRadioCustom">Custom</string>
+    <string name="StringCustom">Custom:</string>
+    <string name="StringTotal">Total:</string>
+    <string name="buttonstringExit">Exit</string>
+    <string name="StringUserValue">Enter Bill Value</string>
+    <string name="StringseekBarProgress">20%</string>
+</resources>
