@@ -11,4 +11,8 @@
     <string name="buttonstringExit">Exit</string>
     <string name="StringUserValue">Enter Bill Value</string>
     <string name="StringseekBarProgress">20%</string>
+    <string name="percentageSymbol"> $ </string>
+    <string name="toastValue"> Enter Bill Total </string>
+
+
 </resources>
