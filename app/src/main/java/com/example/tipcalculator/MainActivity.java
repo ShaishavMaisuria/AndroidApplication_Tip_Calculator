@@ -71,37 +71,6 @@ public class MainActivity extends AppCompatActivity {
                     catch (Exception e){
                         Log.d(e.toString(),"radio buttom 18.0");
                 }
-                } if(checkedId==R.id.radioButtonCustom){
-                    try {
-                        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-                            @Override
-                            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                                textViewProgress.setText(String.valueOf(progress) + new String(" %"));
-                                try {
-                                    double tipValue = 1 + (progress * 0.01);
-                                    double total = Double.parseDouble(userValue.getText().toString()) * tipValue;
-                                    totalAmount.setText(String.valueOf(total));
-                                    textViewTip.setText(String.valueOf(progress) + new String(" %"));
-                                } catch (Exception e) {
-                                    Log.d(e.toString(), "OnProgressChanged of seek bar catch");
-                                }
-                            }
-
-                            @Override
-                            public void onStartTrackingTouch(SeekBar seekBar) {
-
-                            }
-
-                            @Override
-                            public void onStopTrackingTouch(SeekBar seekBar) {
-
-                            }
-                        });
-
-                    }
-                    catch(Exception e){
-                        Log.d(e.toString(),"custom buttom");
-                    }
                 }
             }
         });
@@ -117,5 +86,48 @@ public class MainActivity extends AppCompatActivity {
                 System.exit(0);
             }
         });
+
+
+            try {
+                seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                    @Override
+                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+                        if (radioGroup.getCheckedRadioButtonId() == R.id.radioButtonCustom) {
+                            textViewProgress.setText(String.valueOf(progress) + new String(" %"));
+                            try {
+                                double tipValue = 1 + (progress * 0.01);
+                                double total = Double.parseDouble(userValue.getText().toString()) * tipValue;
+                                totalAmount.setText(String.valueOf(total));
+                                textViewTip.setText(String.valueOf(progress) + new String(" %"));
+                            } catch (Exception e) {
+                                Log.d(e.toString(), "OnProgressChanged of seek bar catch");
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onStartTrackingTouch(SeekBar seekBar) {
+
+                    }
+
+                    @Override
+                    public void onStopTrackingTouch(SeekBar seekBar) {
+
+                    }
+                });
+
+            }
+            catch(Exception e){
+                Log.d(e.toString(),"custom buttom");
+            }
+
+
+
+
+
+
+
+
     }
 }
