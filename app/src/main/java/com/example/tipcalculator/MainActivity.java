@@ -1,5 +1,9 @@
 package com.example.tipcalculator;
-
+/*
+HW1
+@author Shaishav Maisuria
+@author jacob smith
+ */
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Application;
@@ -69,9 +73,9 @@ public class MainActivity extends AppCompatActivity {
                         try {
                             textViewTip.setText("10");
 
-                            totalbilled = Double.parseDouble(userV) * 1.10;
 
-                            totalAmount.setText(String.valueOf(Math.round(totalbilled)));
+                            totalbilled =Math.round( (Double.parseDouble(userV) * 1.10)* 1000d)/1000d ;
+                            totalAmount.setText(String.valueOf(totalbilled));
 
 
                         } catch (Exception e) {
@@ -84,8 +88,8 @@ public class MainActivity extends AppCompatActivity {
                         try {
                             textViewTip.setText("15");
 
-                            totalbilled = Integer.parseInt(userV) * 1.15;
-                            totalAmount.setText(String.valueOf(Math.round(totalbilled)));
+                            totalbilled =Math.round( (Double.parseDouble(userV) * 1.15)* 1000d)/1000d ;
+                            totalAmount.setText(String.valueOf(totalbilled));
                         } catch (Exception e) {
 
                             totalAmount.setText("");
@@ -95,7 +99,8 @@ public class MainActivity extends AppCompatActivity {
                         try {
                             textViewTip.setText("18");
                             totalbilled = Integer.parseInt(userV) * 1.18;
-                            totalAmount.setText(String.valueOf(Math.round(totalbilled)));
+                            totalbilled =Math.round( (Double.parseDouble(userV) * 1.18)* 1000d)/1000d ;
+                            totalAmount.setText(String.valueOf(totalbilled));
                         } catch (Exception e) {
 
                             totalAmount.setText("");
@@ -107,7 +112,9 @@ public class MainActivity extends AppCompatActivity {
                             int temp = seekBar.getProgress();
                             double tipValue = 1 + (temp * 0.01);
                             double total = Double.parseDouble(userV) * tipValue;
-                            totalAmount.setText(String.valueOf(Math.round(total)));
+
+                            totalbilled =Math.round( (Double.parseDouble(userV) * tipValue)* 1000d)/1000d ;
+                            totalAmount.setText(String.valueOf(total));
                             textViewTip.setText(String.valueOf(temp));
                         } catch (Exception e) {
 
@@ -131,9 +138,9 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         textViewTip.setText("10");
 
-                        totalbilled = Double.parseDouble(userValue.getText().toString()) * 1.10;
+                        totalbilled =Math.round( (Double.parseDouble(userValue.getText().toString()) * 1.10)* 1000d)/1000d ;
 
-                        totalAmount.setText(String.valueOf(Math.round(totalbilled)));
+                        totalAmount.setText(String.valueOf(totalbilled));
 
                     } catch (Exception e) {
 
@@ -146,8 +153,8 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         textViewTip.setText("15");
 
-                        totalbilled = Integer.parseInt(userValue.getText().toString()) * 1.15;
-                        totalAmount.setText(String.valueOf(Math.round(totalbilled)));
+                        totalbilled =Math.round( (Double.parseDouble(userValue.getText().toString()) * 1.15)* 1000d)/1000d ;
+                        totalAmount.setText(String.valueOf(totalbilled));
                     } catch (Exception e) {
                         Log.d(e.toString(), "radio buttom 15.0");
                         totalAmount.setText("");
@@ -157,8 +164,8 @@ public class MainActivity extends AppCompatActivity {
                 } else if (checkedId == R.id.radioButton18) {
                     try {
                         textViewTip.setText("18");
-                        totalbilled = Integer.parseInt(userValue.getText().toString()) * 1.18;
-                        totalAmount.setText(String.valueOf(Math.round(totalbilled)));
+                        totalbilled =Math.round( (Double.parseDouble(userValue.getText().toString()) * 1.18)* 1000d)/1000d ;
+                        totalAmount.setText(String.valueOf(totalbilled));
                     } catch (Exception e) {
 
                         totalAmount.setText("");
@@ -170,8 +177,11 @@ public class MainActivity extends AppCompatActivity {
 
                         int temp = seekBar.getProgress();
                         double tipValue = 1 + (temp * 0.01);
-                        double total = Double.parseDouble(userValue.getText().toString()) * tipValue;
-                        totalAmount.setText(String.valueOf(Math.round(total)));
+                        double total = Math.round((Double.parseDouble(userValue.getText().toString()) * tipValue) * 1000d)/1000d;
+
+
+                        totalAmount.setText(String.valueOf(total));
+
                         textViewTip.setText(String.valueOf(temp));
                     } catch (Exception e) {
                         Log.d(e.toString(), "OnProgressChanged of seek bar catch");
@@ -204,10 +214,10 @@ public class MainActivity extends AppCompatActivity {
 
                     try {
                         double tipValue = 1 + (progress * 0.01);
-                        double total = Double.parseDouble(userValue.getText().toString()) * tipValue;
+                        double total = Math.round((Double.parseDouble(userValue.getText().toString()) * tipValue) * 1000d)/1000d;
 
 
-                        totalAmount.setText(String.valueOf(Math.round(total)));
+                        totalAmount.setText(String.valueOf(total));
                         textViewTip.setText(String.valueOf(progress));
                     } catch (Exception e) {
                         Log.d(e.toString(), "OnProgressChanged of seek bar catch");
